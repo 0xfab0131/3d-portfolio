@@ -7,17 +7,26 @@ import Screen from './Screen'
 
 /**
  * 回転するボックスを表示するモニターコンポーネント
- * @param {Object} props - 表示プロパティ
- * @param {string} props.backgroundColor - 背景色（デフォルト：オレンジ色）
- * @param {boolean} props.customEffect - カスタムスキャンラインエフェクトを使用するかどうか（デフォルト：true）
  */
-const ScreenInteractive = React.memo((props) => {
-  const { backgroundColor = COMPUTER_CONSTANTS.COLORS.orange, customEffect = true, ...otherProps } = props
+interface ScreenInteractiveProps {
+  backgroundColor?: string
+  customEffect?: boolean
+  frame?: string
+  panel?: string
+  position?: THREE.Vector3Tuple
+  rotation?: THREE.EulerTuple
+  scale?: number
+}
+
+const ScreenInteractive: React.FC<ScreenInteractiveProps> = React.memo((props) => {
+  const { backgroundColor = COMPUTER_CONSTANTS.COLORS.orange, customEffect = true, frame, panel, position, rotation, scale, ...otherProps } = props
 
   const aspectRatio = COMPUTER_CONSTANTS.TEXTURE.width / COMPUTER_CONSTANTS.TEXTURE.height
 
+  const screenProps = { frame, panel, position, rotation, scale, ...otherProps }
+
   return (
-    <Screen {...otherProps} customEffect={customEffect}>
+    <Screen {...screenProps} customEffect={customEffect}>
       <PerspectiveCamera makeDefault manual aspect={aspectRatio} position={[0, 0, 10]} />
       <color attach="background" args={[backgroundColor]} />
       <ambientLight intensity={COMPUTER_CONSTANTS.FULL_PI / 2} />

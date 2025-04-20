@@ -40,7 +40,7 @@ export const useRenderTextureCache = ({ width, height, anisotropy = 1, id = null
         minFilter: THREE.LinearFilter,
         magFilter: THREE.LinearFilter,
         format: THREE.RGBAFormat,
-        encoding: THREE.sRGBEncoding,
+        colorSpace: THREE.SRGBColorSpace,
         anisotropy
       })
       textureRef.current = renderTarget
@@ -65,7 +65,7 @@ export const useRenderTextureCache = ({ width, height, anisotropy = 1, id = null
       minFilter: THREE.LinearFilter,
       magFilter: THREE.LinearFilter,
       format: THREE.RGBAFormat,
-      encoding: THREE.sRGBEncoding,
+      colorSpace: THREE.SRGBColorSpace,
       anisotropy
     })
 
