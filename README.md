@@ -1,56 +1,87 @@
-# 3D モニターズ・ディスプレイ
+# 3D Monitors Application
 
-React と Three.js を使用した、インタラクティブな 3D コンピューターモニターの展示アプリケーションです。
+This project displays a 3D retro computer model using React, Three.js, and related libraries. It showcases dynamic screen content and optimized rendering techniques.
 
-![サムネイル](thumbnail.png)
+## Features
 
-## 概要
+- Displays a complex 3D model (`computers_1-transformed.glb`).
+- Uses React Three Fiber and Drei for efficient 3D scene management.
+- Implements dynamic content rendering onto monitor screens.
+- Includes performance optimizations like instancing and LOD (Level of Detail - planned).
+- Configured for deployment on Vercel.
 
-このプロジェクトは、WebGL を活用して古いスタイルのコンピューターモニターを 3D で表示する Web 体験を提供します。ユーザーはマウスを動かすことでカメラアングルを変更でき、モニター画面にはカスタムテキストが表示されます。
+## Technology Stack
 
-## 特徴
+- React
+- Three.js
+- React Three Fiber (`@react-three/fiber`)
+- React Three Drei (`@react-three/drei`)
+- `pnpm` (Package Manager)
+- Vercel (Deployment)
 
-- リアルな 3D コンピューターモデルの表示
-- マウス操作によるインタラクティブなカメラ移動
-- モニター画面へのカスタムコンテンツ表示
-- 美しいライティングとポストプロセッシング効果
+## Getting Started
 
-## 利用方法
+### Prerequisites
 
-### ローカル環境で実行
+- Node.js (v18 or later recommended)
+- `pnpm` (Package Manager - Installation recommended via `corepack enable`)
+
+### Installation
+
+1.  Clone the repository:
+    ```bash
+    git clone <repository-url>
+    cd monitors
+    ```
+2.  Install dependencies using `pnpm`:
+    ```bash
+    pnpm install
+    ```
+    _Note: `--legacy-peer-deps` might be needed initially if dependency conflicts arise, but `pnpm` often handles this better._
+
+### Running the Development Server
+
+To start the development server (usually on `http://localhost:3001`):
 
 ```bash
-# 依存パッケージをインストール
-./run.sh install
-
-# 開発サーバーを起動
-./run.sh start
+pnpm start
 ```
 
-詳細な手順については、以下のドキュメントを参照してください：
+The application will automatically open in your default browser.
 
-- `commands.md` - 基本的なコマンド一覧
-- `step-by-step-guide.md` - 詳細な実行手順
-- `project-structure.md` - プロジェクト構造の説明
+### Building for Production
 
-## 技術スタック
+To create an optimized production build (output in the `build/` directory, source maps disabled):
 
-- React 18
-- Three.js 0.162.0
-- React Three Fiber
-- React Three Drei
-- Postprocessing
+```bash
+pnpm build
+```
 
-## デプロイ
+### Deployment
 
-Vercel へのデプロイ方法は、`step-by-step-guide.md`を参照してください。
+This project is configured for easy deployment to Vercel.
 
-## ライセンス
+1.  Install the Vercel CLI:
+    ```bash
+    npm install -g vercel
+    ```
+2.  Deploy to a preview environment:
+    ```bash
+    pnpm deploy
+    ```
+3.  Deploy to production:
+    ```bash
+    pnpm deploy:prod
+    ```
 
-このプロジェクトに使用されている 3D モデルは以下のライセンスに基づいています：
+## Project Structure
 
-- 作者: Rafael Rodrigues (https://sketchfab.com/RafaelBR873D)
-- ライセンス: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
-- 出典: https://sketchfab.com/3d-models/old-computers-7bb6e720499a467b8e0427451d180063
+Refer to `project-structure.md` for a detailed overview of the project's directory and file organization.
 
-コードベースは MIT ライセンスの下で提供されています。
+## Contributing
+
+Contributions are welcome! Please follow standard Git workflow (fork, branch, commit, pull request).
+
+## License
+
+[Specify your license here, e.g., MIT License]
